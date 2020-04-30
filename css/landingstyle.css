@@ -25,7 +25,8 @@ a{
 
 .grey-image{
   filter: grayscale(1) ;
-  transition: filter 1s;
+  transition: filter 1s; 
+  user-select: none;
 }
 .grey-image:hover{
   filter: grayscale(0);
