@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="ag art studio" content="we make games and game development tools for unity 3d">
+    <meta name="viewport" content="width=device-width">
+    <title>AG ArtStudio</title>
+    <link href="css/landingstyle.css" rel="stylesheet">
+    <link href="css/artstore-style.css" rel="stylesheet">
+    <link href="css/tools-section.css" rel="stylesheet">
+    <link href="css/games-section.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        var $root = $('html, body');
+        $(document).ready(function () {
+            $(".hidden-button-left").click(function () {
+                var scrolable = $(this).siblings(".scrollable").first();
+                var parentWidth = scrolable.parent().width()
+                var newLeft = parseInt(scrolable.css('left')) + parentWidth;
+                newLeft = newLeft > 0 ? 0 : newLeft;
+                scrolable.css({ 'left': newLeft });
+            });
+            $(".hidden-button-right").click(function () {
+                var scrolable = $(this).siblings(".scrollable").first();
+                var parentWidth = scrolable.parent().width();
+                var newLeft = parseInt(scrolable.css('left')) - parentWidth;
+                newLeft = newLeft < parentWidth - scrolable.width() ? parentWidth - scrolable.width() : newLeft;
+                scrolable.css({ 'left': newLeft });
+            });
+            $('a[href^="#"]').click(function () {
+                $root.animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top
+                }, 3000);
+
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section id="landing-view">
+        <div id="header">
+            <img src="Logo.png" id="logo">
+            <div id="studio-name">AG Art Studio</div>
+            <div id="header-menu">
+                <a href="#games-section">Games</a> |
+                <a href="#tools-section">Unity Tools</a> |
+                <a href="#artstore-section">Art Store</a> |
+                <a href="https://www.linkedin.com/in/ahmedgamalfouad/" target="_blank">About Me</a> |
+                <a href="mailto:ag@agart.studio" target="_blank">Contact</a></div>
+        </div>
+        <div class="logo-bg"></div>
+        <div class="logo-bg-bg"></div>
+
+        <div class="mid-title-container">
+            <div class="mid-title">We Make Games</div>
+            <div class="mid-subtitle">and help game makers</div>
+            <div id="options-container">
+                <a href="#artstore-section"><div class="section-option">Art Store</div></a>
+                <a href="#tools-section"><div class="section-option">Unity Tools</div></a>
+                <a href="#games-section"><div class="section-option">Games</div></a>
+            </div>
+        </div>
+    </section>
+    <section id="artstore-section" class="purple-section">
+        <div class="section-title">Art Store
+            <img id="sun-img" src="Images/drawing_Up.png"> </div>
+        <div class="section-content">
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <div class="art-title">3D Models</div>
+                    <div class="hidden-button-left"></div>
+                    <div class="hidden-button-right"></div>
+                    <div class="scrollable">
+                        <img class="grey-image" src="Images/artstore/t1.jpg" />
+                        <img class="grey-image" src="Images/artstore/t8.jpg" />
+                        <img class="grey-image" src="Images/artstore/t9.jpg" />
+                        <img class="grey-image" src="Images/artstore/t10.jpg" />
+                        <img class="grey-image" src="Images/artstore/t11.jpg" />
+                        <img class="grey-image" src="Images/artstore/t5.jpg">
+                        <img class="grey-image" src="Images/artstore/t7.jpg" />
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="art-title">Paintings </div>
+                    <div class="hidden-button-left"></div>
+                    <div class="hidden-button-right"></div>
+                    <div class="scrollable">
+                        <img class="grey-image" src="Images/artstore/p1.jpg">
+                        <img class="grey-image" src="Images/artstore/p2.jpg" />
+                        <img class="grey-image" src="Images/artstore/p3.jpg" />
+                        <img class="grey-image" src="Images/artstore/p5.jpg" />
+                        <img class="grey-image" src="Images/artstore/p7.jpg" />
+                        <img class="grey-image" src="Images/artstore/p8.jpg" />
+                        <img class="grey-image" src="Images/artstore/p9.jpg" />
+                        <img class="grey-image" src="Images/artstore/p10.jpg" />
+                        <img class="grey-image" src="Images/artstore/p4.jpg" />
+
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="art-title">Designs </div>
+                    <div class="hidden-button-left"></div>
+                    <div class="hidden-button-right"></div>
+                    <div class="scrollable">
+                        <img class="grey-image" src="Images/artstore/d1.png">
+                        <img class="grey-image" src="Images/artstore/d2.jpg">
+                        <img class="grey-image" src="Images/artstore/d9.png">
+                        <img class="grey-image" src="Images/artstore/d3.jpg">
+                        <img class="grey-image" src="Images/artstore/d4.jpg">
+                        <img class="grey-image" src="Images/artstore/d5.png">
+                        <img class="grey-image" src="Images/artstore/d6.png">
+                        <img class="grey-image" src="Images/artstore/d7.png">
+                        <img class="grey-image" src="Images/artstore/d8.png">
+                        <img class="grey-image" src="Images/artstore/d11.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-side">
+                <a href="https://www.turbosquid.com/Search/Artists/AG-ArtStudio?referral=AG-ArtStudio">
+                    <div class="right-banner">
+                        <div class="banner-text">View more 3d models and buy them here</div>
+                        <img src="Images/ts_icon_trans.png">
+                    </div>
+                </a>
+                <img id="beach-img" src="Images/drawing_down.png">
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <section id="tools-section">
+        <div class="section-title">Unity Tools</div>
+        <div class="tool-title-container">
+            <div class="logo-wrapper"> <img src="Images/Colored GVX logo.png"></div>
+            <div class="title-wrapper">
+                <div class="tool-title">GVX</div>
+                <div class="tool-tagline">real time visual effects generator for unity 3d</div>
+                <a><!--href="">Download Here-->Coming Soon</a>
+            </div>
+        </div>
+        <div class="tool-info">
+            Visual effects are essential to make cool and fun games. And there are so many different
+            variations and a countless number of effects needed which makes it complicated and time-consuming to get the
+            right look.
+            GVX is a tool that helps you generate cool visual effects by composing multiple customizable and
+            editable presets that we call sub-effects. We gathered several advanced shaders and common VFX
+            techniques like particles system shaders, decals, distortions and many more. All of these techniques
+            have been implemented in a way that makes it easy to customize with minimal effort, mix and match with
+            others, combine them in a time-line and finally add your own sub-effects.
+            While you can use it to develop the Visual effects you need. The VFX enthusiasts can use it to prototype
+            or extend the sub-effects library. And with a bigger sub-effects library in the future,
+            the capabilities will grow more and more.
+        </div>
+        <div class="images-list">
+            <div class="tool-img grey-image">
+                <img src="Images/tool-shots/lightening.png">
+                <div class="img-title-wrapper">
+                    <div class="tool-img-title"> Many Subeffects </div>
+                </div>
+            </div>
+            <div class="tool-img grey-image">
+                <img src="Images/tool-shots/smoke.png">
+                <div class="img-title-wrapper">
+                    <div class="tool-img-title"> Edit </div>
+                </div>
+            </div>
+            <div class="tool-img grey-image">
+                <img src="Images/tool-shots/options.png">
+                <div class="img-title-wrapper">
+                    <div class="tool-img-title"> Customize </div>
+                </div>
+            </div>
+            <div class="tool-img grey-image">
+                <img src="Images/tool-shots/sheild.png">
+                <div class="img-title-wrapper">
+                    <div class="tool-img-title"> Compose</div>
+                </div>
+            </div>
+            <div class="tool-img grey-image">
+                <img src="Images/tool-shots/shieldcompos.png">
+                <div class="img-title-wrapper">
+                    <div class="tool-img-title"> Time </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="games-section" class="purple-section">
+        <div class="section-title">Games
+            <img id="chess-img" src="Images/games-chess.png">
+        </div>
+        <div class="games-container">
+            <div class="inner-game-container">
+                <img id="mario-img" src="Images/games-mario.png">
+                <div id="black-box"></div>
+                <div id="side-bg-container">
+                    <div id="white-box"></div>
+                    <!--<img id="tettris-img" src="Images/games-tettris.png">-->
+                </div>
+                <div class="game-details-container">
+                    <div class="game-title-container">
+                        <div class="game-title game-side-width"><span class="highlight">Pen</span> Booms</div>
+                    </div>
+                    <a class="game-side-width game-download" ><!--href="" >Download-->Soon</a>
+                    <div class="game-side-width game-info">Have U ever played PEN FIGHTING in school ?
+                        U can play online now!<br>
+                        When we were in school and had time between classes, we used to play SUMO... but with pens.
+                        Whoever knocks the opponent's pen off the table, wins. Some even bought specific pens just for
+                        fighting.
+
+                        now it's time for you to live the experience with a small twist to the rules.
+                        Play online with strangers or with your friends. Win by knocking their pen off the table or by
+                        scoring a goal ;)
+                    </div>
+                </div>
+                <div class="game-bg-container"></div>
+                <div class="game-img-container">
+                    <img class="game-main-img grey-image" src="Images/games/pb-1.jpg">
+                    <div class="game-images-list">
+                        <div> <img class="grey-image" src="Images/games/pb-2.jpg"></div>
+                        <div> <img class="grey-image" src="Images/games/pb-3.jpg"></div>
+                        <div> <img class="grey-image" src="Images/games/pb-6.jpg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"> all rights reserved &copy; <a href="privacypolicy.htm">privacy policy</a></div>
+    </section>
+
+</body>
+
+</html

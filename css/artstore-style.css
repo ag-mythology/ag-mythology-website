@@ -1,0 +1,181 @@
+#artstore-section{
+    display: flex;
+    flex-flow: column;
+  }
+  
+.purple-section{
+    color: white;
+    background-color: #330033;
+}
+.purple-section .section-title {
+    border-bottom: solid 1px white;
+    position: relative;
+}
+
+.section-content{
+    /*padding: 5vh 0px 1vh 70px;*/
+    flex-grow: 1;
+    display: flex;
+}
+
+.gallery-container{    
+    flex-grow: 1;
+    display: flex;
+    width: 80%;
+    margin: 30px 0px 30px 70px;
+    flex-direction: column;
+    max-height: 85vh;
+    overflow: hidden;
+    background-color: #dfdfdf;
+    /*grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto; 
+    /*grid-auto-rows: 30vh;*/ 
+}
+
+
+.gallery-item{
+    margin: 5px;
+    flex-grow: 1;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.scrollable{
+    display: inline-flex;
+    flex-direction: row;
+    position: relative;
+    left:0px;
+    will-change: left;
+    transition: left 1s ease-out;
+}
+
+.gallery-item img{
+    
+    border:1px;
+    width: auto;
+    margin: 1px;
+    /*width: 10vw;
+    object-fit: cover;
+    min-width: 100px;
+    min-height: 100px;*/
+    object-fit: cover;    
+    height: 20vh;
+    min-height: 100px;
+}
+.art-title{
+    /*background-color: whitesmoke;*/
+    color: black;
+    font-size: 2rem;
+    padding:0.5vh 0 0.5vh 0;
+    margin:0.5vh 0 0.5vh 0;
+    /*text-align: center;*/
+    border-bottom: solid 1px black;
+}
+
+
+.hidden-button-left,.hidden-button-right{
+
+    color: white;
+    background-color:rgba(0,0,0, 0.5);
+    opacity: 0.1;
+    z-index: 5;
+    position: absolute;    
+    height: 20vh;
+    min-height: 100px;
+    min-width:30px;
+    width: 3vw;
+    text-align: center;
+    line-height: max(100px,20vh);
+    max-width: 50px;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+}
+
+.hidden-button-left{
+    left: 0px;
+    background-image: url("/Images/arrow-left.png");
+}
+.hidden-button-right{
+    right: 0px;
+    background-image: url("/Images/arrow-right.png");
+}
+
+.hidden-button-left:hover,.hidden-button-right:hover{
+    opacity: 1;
+}
+
+
+/*
+.item-main-img{
+    width: 20vw;    
+    height: 20vw;
+    min-width: 400px;
+    min-height: 400px;
+    margin-right: 5px;
+}
+
+.item-small-img{
+    width: 5vw;    
+    height: 5vw;
+    min-width: 100px;
+    min-height: 100px;
+}
+*/
+
+
+
+.item-small-img:hover{
+    transform: scale(1.02) translateY(-10px);
+}
+
+.gallery-side {
+    width: 25vw;
+    border-left: solid 1px;
+    position: relative;
+}
+
+#sun-img{
+    position: absolute;
+    width: 20vw;
+    z-index: 1;
+    top: -10%;
+    right: 0px;
+}
+
+
+
+#beach-img{
+    position: absolute;
+    width: 80%;
+    z-index: 1;
+    bottom: 5%;
+    right: 10%;
+}
+
+.right-banner{
+    position: absolute;
+    width: 100%;
+    min-height: 35%;
+    background-color: rgba(0,0,0, 0.4);
+    z-index: 3;
+    top: 20%;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.right-banner img{
+    margin: 10px auto 0 auto;
+    width: 30%;
+}
+.banner-text{
+    margin: 10% auto 0 auto;
+    font-size: 4rem;
+    width: 80%;
+    text-align: center;
+    color: #dfdfdf;
+}

@@ -1,0 +1,240 @@
+html,body{
+  font-size: calc(6px + 0.1vmax);
+}
+#landing-view {
+  background-image: url("/Images/BG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  animation: fadein 0.5s both, shrinkhieght 0.8s 5s both ease-in-out;
+}
+section {
+  min-height: 97vh;
+}
+a{
+  user-select: none;
+}
+.section-title{
+  font-size: 6rem;
+  padding-top: 1.5vh;
+  padding-left: 70px;
+}
+
+.grey-image{
+  filter: grayscale(1) ;
+  transition: filter 1s;
+}
+.grey-image:hover{
+  filter: grayscale(0);
+  cursor: url("/Images/pulb-cursor.png") 16 16,auto;
+}
+
+@keyframes shrinkhieght {
+  from {
+    min-height: 100vh;
+  }
+  to {
+    min-height: 97vh;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotatein {
+  from {
+    transform: rotate(-30deg) translateY(-300px) translateX(-50px);
+  }
+}
+
+@keyframes shakein {
+  0% {
+    translate: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes settle {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scalein {
+  from {
+    transform: scale(0);
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(30deg) translateY(-20px) translateX(-50px);
+  }
+  25% {
+    transform: rotate(30deg) translateY(-20px) translateX(-50px) rotate(2deg);
+  }
+  75% {
+    transform: rotate(30deg) translateY(-20px) translateX(-50px) rotate(-2deg);
+  }
+  100% {
+    transform: rotate(30deg) translateY(-20px) translateX(-50px) rotate(0deg);
+  }
+}
+
+#studio-name {
+  height: 100%;
+  display: inline-block;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
+  min-width: 120px;
+  font-size: 1.7rem;
+  animation: rotatein 0.5s 1.3s both;
+}
+
+.logo-bg {
+  background-color: #350038;
+  width: 300px;
+  height: 150px;
+  opacity: 0.8;
+  position: absolute;
+  transform: rotate(30deg) translateY(-20px) translateX(-50px);
+  animation: rotatein 0.5s 1s both ease-in-out,
+    sway 5s 2s infinite alternate-reverse ease-in-out;
+}
+
+.logo-bg-bg {
+  background-color: #350038;
+  width: 320px;
+  height: 150px;
+  opacity: 0.2;
+  position: absolute;
+  transform: rotate(30deg) translateY(10px) translateX(-45px);
+  animation: fadein 0.5s 0.8s both, rotatein 0.5s 0.8s both;
+}
+#logo {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  margin-left: 20px;
+  position: relative;
+  top: 10px;
+  animation: fadein 0.8s 1.5s both,
+    shakein 0.1s 1.5s 5 alternate-reverse ease-in-out backwards,
+    settle 0.15s 2s ease-in-out;
+}
+
+#header {
+  height: 6%;
+  width: 100%;
+  position: relative;
+  border-bottom: solid 2px #48244a;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  animation: fadein 0.5s 0.5s both, slidein 0.5s 0.5s both;
+}
+
+#header-menu {
+  width: 100%;
+  text-align: right;
+  padding-right: 10%;
+  font-size: 1.4rem;
+  color: lightgray;
+}
+
+#header-menu a {
+  text-decoration: none;
+  color: #4f4f4f;
+  transition: color 0.5s,background-color 0.5s;
+  width: 80px;
+  display: inline-block;
+  text-align: center;
+}
+#header-menu a:hover {
+  background-color: rgba(66,33,66, 0.1);
+}
+
+.mid-title-container {
+  margin-top:55vh;
+  margin-left: 12%;
+  padding-bottom: 70px;
+}
+
+.mid-title-container hr {
+  transform-origin: left;
+  border-top: 2px solid grey;
+  animation: scale-right 1s 3s both;
+}
+.mid-title {
+  color: #542756;
+  font-size: 6.5rem;
+  animation: fadein 0.5s 2.5s both, slidein 0.5s 2.5s both;
+}
+
+.mid-subtitle {
+  color: #4f4f4f;
+  font-size: 3rem;
+  margin-top: 2vh;
+  animation: fadein 0.5s 4s both, slidein 0.5s 4s both, contentLoad 1s 10s both;
+}
+
+#options-container {
+  margin-top: 50px;
+  font-size: 1.8rem;
+  color: #999;
+  cursor: pointer;
+}
+
+#options-container a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-option {
+  /*border: 1px solid #ccc;
+    border-radius: 5px;*/
+  margin-top: 10px;
+  border-left: 1px solid lightgray;
+  padding-left: 5px;
+  transition: all 0.5s;
+  animation: fadein 0.5s 4.5s both, slidein 0.5s 4.5s both;
+}
+.section-option:hover {
+  border-left: 10px solid;
+  border-color: #fbb100;
+  color: #fbb100;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #c7c7c6;
+}
