@@ -1,5 +1,5 @@
 #tools-section{
-    background-image: url("/Images/tools-bg.png");
+    background-image: url("../Images/tools-bg.png");
     background-size: cover;
     display: flex;
     flex-flow: column;

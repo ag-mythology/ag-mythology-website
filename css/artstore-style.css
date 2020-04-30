@@ -96,11 +96,11 @@
 
 .hidden-button-left{
     left: 0px;
-    background-image: url("/Images/arrow-left.png");
+    background-image: url("../Images/arrow-left.png");
 }
 .hidden-button-right{
     right: 0px;
-    background-image: url("/Images/arrow-right.png");
+    background-image: url("../Images/arrow-right.png");
 }
 
 .hidden-button-left:hover,.hidden-button-right:hover{

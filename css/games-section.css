@@ -175,7 +175,7 @@
     bottom: 18%;
     width: 5vw;
     right: -5vw;
-    background-image: url(/Images/games-tettris.png);
+    background-image: url("../Images/games-tettris.png");
     background-repeat: repeat-y;
     background-position: center top;
     background-size: 2vw auto;
