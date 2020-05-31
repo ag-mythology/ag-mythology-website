@@ -1,5 +1,10 @@
+@font-face {
+  font-family: ostrich-sans;
+  src: url("../fonts/Dosis/static/Dosis-SemiBold.ttf");
+}
+
 html,body{
-  font-size: calc(6px + 0.1vmax);
+  font-size: calc(7px + 0.1vmax);
 }
 #landing-view {
   background-image: url("../Images/BG.png");
@@ -235,7 +240,8 @@ a{
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: ostrich-sans;
   margin: 0;
   background-color: #c7c7c6;
 }
