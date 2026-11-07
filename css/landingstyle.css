@@ -13,8 +13,8 @@ html,body{
   background-position: center;
   width: 100%;
   position: relative;
-  min-height: 100vh;
-  animation: fadein 0.5s both, shrinkhieght 0.8s 5s both ease-in-out;
+  min-height: 85vh;
+  animation: fadein 0.5s both;
 }
 section {
   min-height: 97vh;
@@ -43,7 +43,7 @@ a{
     min-height: 100vh;
   }
   to {
-    min-height: 97vh;
+    min-height: 85vh;
   }
 }
 
@@ -189,7 +189,7 @@ a{
 }
 
 .mid-title-container {
-  margin-top:55vh;
+  margin-top:45vh;
   margin-left: 12%;
   padding-bottom: 70px;
 }

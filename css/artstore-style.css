@@ -18,6 +18,10 @@
     display: flex;
 }
 
+#artstore-section .section-content{
+    border-bottom: solid 1px white;
+}
+
 .gallery-container{    
     flex-grow: 1;
     display: flex;
@@ -178,4 +182,40 @@
     width: 80%;
     text-align: center;
     color: #dfdfdf;
+}
+/* Drag-to-scroll rows */
+.gallery-item .scrollable{
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+}
+.gallery-item .scrollable.dragging{
+    cursor: grabbing;
+    transition: none;
+}
+
+/* Full-size image overlay */
+#image-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+#image-overlay.open{
+    display: flex;
+}
+#image-overlay img{
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+#tools-section .images-list .tool-img,
+#games-section .game-img-container img{
+    cursor: zoom-in;
 }
