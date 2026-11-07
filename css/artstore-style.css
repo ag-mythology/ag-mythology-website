@@ -214,8 +214,3 @@
     object-fit: contain;
     box-shadow: 0 0 30px rgba(0,0,0,0.6);
 }
-
-#tools-section .images-list .tool-img,
-#games-section .game-img-container img{
-    cursor: zoom-in;
-}

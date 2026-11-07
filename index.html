@@ -34,47 +34,68 @@
                 newLeft = newLeft < parentWidth - scrolable.width() ? parentWidth - scrolable.width() : newLeft;
                 scrolable.css({ 'left': newLeft });
             });
-            // Drag-to-scroll for the art store rows + click-to-enlarge overlay
-            var drag = null;
+            // Drag-to-scroll for the art store rows + tap/click-to-enlarge overlay.
+            // Uses pointer events (mouse + touch) instead of "click", which is
+            // unreliable on iOS for plain images and double-fires after a tap.
+            var TAP_SLOP = 10;
+            var press = null;
+            var overlay = $("#image-overlay");
             function clampLeft(row, left) {
                 var min = Math.min(0, row.parent().width() - row.width());
                 return Math.max(min, Math.min(0, left));
             }
-            $(document).on("pointerdown", ".gallery-item .scrollable", function (e) {
+            function openOverlay(img) {
+                overlay.find("img").attr({ src: img.attr("src"), alt: img.attr("alt") });
+                overlay.addClass("open");
+            }
+            var suppressClickUntil = 0;
+            function closeOverlay() {
+                overlay.removeClass("open");
+                suppressClickUntil = Date.now() + 500;
+            }
+            // Swallow the delayed click a touch tap fires after closing the overlay
+            document.addEventListener("click", function (e) {
+                if (Date.now() < suppressClickUntil) { e.preventDefault(); e.stopPropagation(); }
+            }, true);
+            $(document).on("pointerdown", function (e) {
                 if (e.button !== 0) return;
-                drag = { row: $(this), startX: e.clientX, startLeft: parseInt($(this).css("left")) || 0, moved: false };
-                drag.row.addClass("dragging");
+                var row = $(e.target).closest(".gallery-item .scrollable");
+                press = {
+                    x: e.clientX, y: e.clientY, target: e.target, moved: false,
+                    row: row.length ? row : null,
+                    startLeft: row.length ? (parseInt(row.css("left")) || 0) : 0
+                };
+                if (press.row) press.row.addClass("dragging");
             });
             $(document).on("pointermove", function (e) {
-                if (!drag) return;
-                var dx = e.clientX - drag.startX;
-                if (Math.abs(dx) > 5) drag.moved = true;
-                if (drag.moved) drag.row.css("left", clampLeft(drag.row, drag.startLeft + dx));
+                if (!press) return;
+                var dx = e.clientX - press.x, dy = e.clientY - press.y;
+                if (Math.abs(dx) > TAP_SLOP || Math.abs(dy) > TAP_SLOP) press.moved = true;
+                if (press.row && press.moved) press.row.css("left", clampLeft(press.row, press.startLeft + dx));
             });
             $(document).on("pointerup pointercancel", function (e) {
-                if (!drag) return;
-                var d = drag;
-                drag = null;
-                d.row.removeClass("dragging");
-                if (!d.moved && e.type === "pointerup") {
-                    var img = $(e.target).closest(".scrollable img");
-                    if (img.length) {
-                        $("#image-overlay img").attr({ src: img.attr("src"), alt: img.attr("alt") });
-                        $("#image-overlay").addClass("open");
-                    }
+                if (!press) return;
+                var p = press;
+                press = null;
+                if (p.row) p.row.removeClass("dragging");
+                if (p.moved || e.type !== "pointerup") return;
+                var t = $(p.target);
+                if (overlay.hasClass("open")) {
+                    if (t.closest("#image-overlay").length) closeOverlay();
+                    return;
+                }
+                var img = t.closest(".gallery-item .scrollable img, #games-section .game-img-container img");
+                if (!img.length) {
+                    var tool = t.closest("#tools-section .images-list .tool-img");
+                    if (tool.length) img = tool.find("img").first();
+                }
+                if (img.length) {
+                    e.preventDefault();
+                    openOverlay(img);
                 }
             });
-            // Games and tools preview images also open in the overlay
-            $(document).on("click", "#tools-section .images-list .tool-img, #games-section .game-img-container img", function () {
-                var src = $(this).is("img") ? $(this) : $(this).find("img").first();
-                $("#image-overlay img").attr({ src: src.attr("src"), alt: src.attr("alt") });
-                $("#image-overlay").addClass("open");
-            });
-            $(document).on("click", "#image-overlay", function () {
-                $(this).removeClass("open");
-            });
             $(document).on("keydown", function (e) {
-                if (e.key === "Escape") $("#image-overlay").removeClass("open");
+                if (e.key === "Escape") closeOverlay();
             });
             $('a[href^="#"]').click(function () {
                 $root.animate({
